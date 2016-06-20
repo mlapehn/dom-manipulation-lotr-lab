@@ -44,39 +44,59 @@ makeMiddleEarth();
 
 
 // Part 2
-
 function makeHobbits() {
-  var hobbit = document.createElement('ul')
-  for (i = 0, i < hobbits.length; i++) {
-    var listItem = document.createElement('li');
-    li.textContent = [li]
-  }
-
   // display an unordered list of hobbits in the shire (which is the first article tag on the page)
+  var hobbitList = document.createElement('ul');
+  for(var i = 0, len = hobbits.length; i < len; i++){
   // give each hobbit a class of hobbit
+    var hobbit = document.createElement('li');
+    hobbit.className = 'hobbit';
+    hobbit.innerText = hobbits[i];
+    hobbitList.appendChild(hobbit);
+  }
+  theShire.appendChild(hobbitList);
 }
 
+makeHobbits();
+var frodo = body.querySelectorAll('li')[0];
 
 // Part 3
 
 function keepItSecretKeepItSafe() {
-  // create a div with an id of 'the-ring'
+ // create a div with an id of 'the-ring'
+  var theRing = document.createElement('div');
+  theRing.setAttribute('id', 'the-ring');
   // give the div a class of 'magic-imbued-jewelry'
+  theRing.setAttribute('class', 'magic-imbued-jewelry');
   // add an event listener so that when a user clicks on the ring, the nazgulScreech function (provided) is invoked
+  theRing.addEventListener('click', nazgulScreech);
   // add the ring as a child of Frodo
+  frodo.appendChild(theRing);
 }
+
+keepItSecretKeepItSafe();
 
 
 // Part 4
 
 
 function makeBuddies() {
-  // create an aside tag
-  // attach an unordered list of the 'buddies' in the aside
+ // create an aside tag
+  var aside = document.createElement('aside');
+  var buddyList = document.createElement('ul');
+  for(var i = 0, len = buddies.length; i < len; i++){
+    // attach an unordered list of the 'buddies' in the aside
+    var buddy = document.createElement('li');
+    buddy.textContent = buddies[i];
+    buddyList.appendChild(buddy);
+  }
   // insert your aside as a child element of rivendell
+  aside.appendChild(buddyList);
+  rivendell.appendChild(aside);
 }
+makeBuddies();
 
-
+var strider = rivendell.querySelectorAll('li')[3];
 // Part 5
 
 
